@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <script>
+    // <input type="button" value="Connect to Shopify" onclick="ConnectShopify();">
+
+ function ConnectShopify() { 
+   
+
+    var userName = document.getElementById('userName').value;
+   var password = document.getElementById('password').value;
+   var storeName = document.getElementById('storeName').value;
+   var param=[];
+   param.push(userName);
+   param.push(password);
+   param.push(storeName);
+   var x=document.getElementById("sel");
+      for (var i = 0; i < x.options.length; i++) {
+         if(x.options[i].selected ==true){
+              param.push(x.options[i].value);
+          }
+      }
+ 
+ 
+   //param.concat(result);
+   
+   if(userName.length===0 || password.length===0 || storeName.length===0  )
+   {
+     alert('please enter all the details!');
+   }
+   else
+   {
+        google.script.run.connectToShopifyData(param);
+    }
+   }
+
+
+  
+</script>
+  <body>
+    <div align="center">
+     <label for="Store's Name">Store's Name</label>
+     <input type="text" id="storeName" name="storeName"><br><br>
+     <label for="userName">API Key</label>
+     <input type="text" id="userName" name="userName"><br><br>
+     <label for="userName">Password</label>
+     <input type="password" id="password" name="password"><br><br>
+   <div align="center">
+    <select multiple="multiple" id="sel" >
+  <option value="id">ID</option>
+  <option value="email">Email</option>
+  <option value="created_at">Created On</option>
+  <option value="status">Open/Closed</option>
+  <option value="total_tax">Taxes</option>
+  <option value="subtotal_price">Sub Total</option>
+  <option value="total_price"> Total Price</option>
+  <option value="currency">Currency</option>
+  <option value="shipping_address"> Shipping Address</option>
+  <option value="invoice_url"> Invoice URL</option>
+
+
+
+</select>
+<br><br>
+<div>
+
+<button onclick="ConnectShopify();
+">Connect to Shopify</button>
+</div>
+  </body>
+</html>
