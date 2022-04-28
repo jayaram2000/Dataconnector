@@ -22,9 +22,9 @@ function connectToShopifyData(param) {
    
   var last=0;
   var data;
-  let APIkey =param[0];// "221ef632448fd60dbfbcafe6cba9a6e4";
-  let password =param[1];// "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";
-  let storeName=param[2]; //jayarams-store"
+  let APIkey =param[0];// 
+  let password =param[1];// 
+  let storeName=param[2]; //
   //To fetch all orders 
     while(true)
    {
